@@ -27,6 +27,7 @@ public class FoodServiceImpl implements FoodService {
         food.setPrice(foodDto.getPrice());
         food.setDescription(foodDto.getDescription());
         food.setIngredients(foodDto.getIngredients());
+        food.setFoodType(foodDto.getFoodType());
 
         Food newFood = foodRepository.save(food);
 
@@ -36,6 +37,7 @@ public class FoodServiceImpl implements FoodService {
         foodResponse.setPrice(newFood.getPrice());
         foodResponse.setDescription(newFood.getDescription());
         foodResponse.setIngredients(newFood.getIngredients());
+        foodResponse.setFoodType(newFood.getFoodType());
 
         return foodResponse;
     }
@@ -60,6 +62,7 @@ public class FoodServiceImpl implements FoodService {
         food.setPrice(foodDto.getPrice());
         food.setDescription(foodDto.getDescription());
         food.setIngredients(foodDto.getIngredients());
+        food.setFoodType(foodDto.getFoodType());
 
         Food updatedFood = foodRepository.save(food);
 
@@ -79,17 +82,8 @@ public class FoodServiceImpl implements FoodService {
         foodDto.setDescription(food.getDescription());
         foodDto.setPrice(food.getPrice());
         foodDto.setIngredients(food.getIngredients());
+        foodDto.setFoodType(food.getFoodType());
 
         return foodDto;
-    }
-
-    private Food mapToEntity(FoodDto foodDto){
-        Food food = new Food();
-        food.setId(foodDto.getId());
-        food.setName(foodDto.getName());
-        food.setDescription(foodDto.getDescription());
-        food.setPrice(foodDto.getPrice());
-        food.setIngredients(foodDto.getIngredients());
-        return food;
     }
 }

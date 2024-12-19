@@ -22,8 +22,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(SauceNotFoundException.class)
-    public ResponseEntity<ErrorObject> handleSauceNotFoundException(FoodNotFoundException ex, WebRequest request){
+    @ExceptionHandler(DrinkNotFoundException.class)
+    public ResponseEntity<ErrorObject> handleDrinkNotFoundException(FoodNotFoundException ex, WebRequest request){
         ErrorObject errorObject = new ErrorObject();
 
         errorObject.setStatusCode(HttpStatus.NOT_FOUND.value());
