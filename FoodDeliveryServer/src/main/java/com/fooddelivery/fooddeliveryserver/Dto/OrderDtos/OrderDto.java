@@ -1,5 +1,6 @@
 package com.fooddelivery.fooddeliveryserver.Dto.OrderDtos;
 
+import com.fooddelivery.fooddeliveryserver.models.enums.Status;
 import com.fooddelivery.fooddeliveryserver.Dto.OrderItemDtos.OrderItemDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +11,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
+public class OrderDto {
     private Long id;
-    private String status;
+    private Status status;
     private List<OrderItemDto> orderItems;
 }
