@@ -7,6 +7,7 @@ import com.fooddelivery.fooddeliveryserver.models.Drink;
 import com.fooddelivery.fooddeliveryserver.models.Food;
 import com.fooddelivery.fooddeliveryserver.models.Order;
 import com.fooddelivery.fooddeliveryserver.models.OrderItem;
+import com.fooddelivery.fooddeliveryserver.models.enums.Status;
 import com.fooddelivery.fooddeliveryserver.repository.OrderRepository;
 import com.fooddelivery.fooddeliveryserver.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,28 +27,37 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDto createOrder(OrderDto orderDto) {
         Order order = new Order();
-        order.setStatus(orderDto.getStatus());
+        order.setStatus(Status.ORDER_CREATED);
 
-        order.setOrderItems(mapToEntity(orderDto));
+        List<OrderItem> orderItems = mapToEntity(orderDto);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
 
         orderRepository.save(order);
-
         return mapToDto(order);
     }
 
     @Override
     public OrderDto updateOrder(Long id, OrderDto orderDto) {
-        Optional<Order> existingOrder = orderRepository.findById(id);
-        if (existingOrder.isPresent()) {
-            Order order = existingOrder.get();
-            order.setStatus(orderDto.getStatus());
-            order.setOrderItems(mapToEntity(orderDto));
+        Order existingOrder = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
 
-            orderRepository.save(order);
-            return mapToDto(order);
-        }
-        throw new OrderNotFoundException("Order not found ");
+        existingOrder.setStatus(orderDto.getStatus());
+
+        List<OrderItem> updatedOrderItems = mapToEntity(orderDto);
+
+        updatedOrderItems.forEach(orderItem -> orderItem.setOrder(existingOrder));
+
+        existingOrder.getOrderItems().clear();
+
+        existingOrder.getOrderItems().addAll(updatedOrderItems);
+
+        orderRepository.save(existingOrder);
+
+        return mapToDto(existingOrder);
     }
+
 
     @Override
     public Optional<OrderDto> getOrderById(Long id) {
@@ -72,6 +82,25 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderNotFoundException("Order not found");
         }
     }
+
+    @Override
+    public OrderDto updateOrderStatus(Long id, Status newStatus) {
+        Optional<Order> existingOrder = orderRepository.findById(id);
+        if (existingOrder.isPresent()) {
+            Order order = existingOrder.get();
+
+            // Ellenőrzés: Csak a jó irányba haladhatunk
+            if (order.getStatus().ordinal() >= newStatus.ordinal()) {
+                throw new IllegalArgumentException("Cannot update to a previous or same status");
+            }
+
+            order.setStatus(newStatus); // Új státusz beállítása
+            orderRepository.save(order); // Order mentése
+            return mapToDto(order); // DTO visszaadása
+        }
+        throw new OrderNotFoundException("Order not found");
+    }
+
 
 
     private OrderDto mapToDto(Order order) {
