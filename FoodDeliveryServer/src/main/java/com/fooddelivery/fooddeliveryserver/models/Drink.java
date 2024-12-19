@@ -1,4 +1,4 @@
-package com.fooddelivery.fooddeliveryserver.api.models;
+package com.fooddelivery.fooddeliveryserver.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Sausce {
+public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
 }
