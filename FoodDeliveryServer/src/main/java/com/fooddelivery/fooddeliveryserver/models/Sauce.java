@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Sausce {
+public class Sauce {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

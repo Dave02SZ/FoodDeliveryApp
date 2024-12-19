@@ -1,14 +1,12 @@
 package com.fooddelivery.fooddeliveryserver.controllers;
 
-import com.fooddelivery.fooddeliveryserver.Dto.FoodDto;
-import com.fooddelivery.fooddeliveryserver.models.Food;
+import com.fooddelivery.fooddeliveryserver.Dto.FoodDtos.FoodDto;
 import com.fooddelivery.fooddeliveryserver.services.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

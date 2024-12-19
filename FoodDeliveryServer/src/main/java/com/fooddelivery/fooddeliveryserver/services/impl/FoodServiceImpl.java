@@ -1,6 +1,6 @@
 package com.fooddelivery.fooddeliveryserver.services.impl;
 
-import com.fooddelivery.fooddeliveryserver.Dto.FoodDto;
+import com.fooddelivery.fooddeliveryserver.Dto.FoodDtos.FoodDto;
 import com.fooddelivery.fooddeliveryserver.exceptions.FoodNotFoundException;
 import com.fooddelivery.fooddeliveryserver.models.Food;
 import com.fooddelivery.fooddeliveryserver.repository.FoodRepository;

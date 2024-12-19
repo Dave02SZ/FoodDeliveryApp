@@ -1,6 +1,6 @@
 package com.fooddelivery.fooddeliveryserver.services;
 
-import com.fooddelivery.fooddeliveryserver.Dto.FoodDto;
+import com.fooddelivery.fooddeliveryserver.Dto.FoodDtos.FoodDto;
 
 import java.util.List;
 

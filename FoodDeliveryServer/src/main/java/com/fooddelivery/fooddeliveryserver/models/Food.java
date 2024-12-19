@@ -20,7 +20,7 @@ public class Food {
     private boolean hasSauce;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Sausce> sausceList = new ArrayList<>();
+    private List<Sauce> sausceList = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
