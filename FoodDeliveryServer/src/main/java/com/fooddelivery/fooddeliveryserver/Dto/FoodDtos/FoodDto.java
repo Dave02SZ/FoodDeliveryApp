@@ -6,5 +6,7 @@ import lombok.Data;
 public class FoodDto {
     private Long id;
     private String name;
-    private boolean hasSauce;
+    private String description;
+    private String ingredients;
+    private int price;
 }

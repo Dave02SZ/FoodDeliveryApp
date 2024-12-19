@@ -24,14 +24,19 @@ public class FoodServiceImpl implements FoodService {
     public FoodDto createFood(FoodDto foodDto) {
         Food food = new Food();
         food.setName(foodDto.getName());
-        food.setHasSauce(foodDto.isHasSauce());
+        food.setPrice(foodDto.getPrice());
+        food.setDescription(foodDto.getDescription());
+        food.setIngredients(foodDto.getIngredients());
 
         Food newFood = foodRepository.save(food);
 
         FoodDto foodResponse = new FoodDto();
         foodResponse.setId(newFood.getId());
         foodResponse.setName(newFood.getName());
-        foodResponse.setHasSauce(newFood.isHasSauce());
+        foodResponse.setPrice(newFood.getPrice());
+        foodResponse.setDescription(newFood.getDescription());
+        foodResponse.setIngredients(newFood.getIngredients());
+
         return foodResponse;
     }
 
@@ -52,7 +57,10 @@ public class FoodServiceImpl implements FoodService {
         Food food = foodRepository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found"));
 
         food.setName(foodDto.getName());
-        food.setHasSauce(foodDto.isHasSauce());
+        food.setPrice(foodDto.getPrice());
+        food.setDescription(foodDto.getDescription());
+        food.setIngredients(foodDto.getIngredients());
+
         Food updatedFood = foodRepository.save(food);
 
         return mapToDto(updatedFood);
@@ -68,7 +76,9 @@ public class FoodServiceImpl implements FoodService {
         FoodDto foodDto = new FoodDto();
         foodDto.setId(food.getId());
         foodDto.setName(food.getName());
-        foodDto.setHasSauce(food.isHasSauce());
+        foodDto.setDescription(food.getDescription());
+        foodDto.setPrice(food.getPrice());
+        foodDto.setIngredients(food.getIngredients());
 
         return foodDto;
     }
@@ -77,7 +87,9 @@ public class FoodServiceImpl implements FoodService {
         Food food = new Food();
         food.setId(foodDto.getId());
         food.setName(foodDto.getName());
-        food.setHasSauce(foodDto.isHasSauce());
+        food.setDescription(foodDto.getDescription());
+        food.setPrice(foodDto.getPrice());
+        food.setIngredients(foodDto.getIngredients());
         return food;
     }
 }
