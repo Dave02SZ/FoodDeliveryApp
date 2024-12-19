@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDto updateOrder(Long id, OrderDto orderDto) {
         Order existingOrder = orderRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
         existingOrder.setStatus(orderDto.getStatus());
 

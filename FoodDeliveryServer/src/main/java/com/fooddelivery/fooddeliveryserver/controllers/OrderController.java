@@ -1,6 +1,7 @@
 package com.fooddelivery.fooddeliveryserver.controllers;
 
 import com.fooddelivery.fooddeliveryserver.Dto.OrderDtos.OrderDto;
+import com.fooddelivery.fooddeliveryserver.Dto.OrderDtos.OrderStatusDto;
 import com.fooddelivery.fooddeliveryserver.models.enums.Status;
 import com.fooddelivery.fooddeliveryserver.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,11 @@ public class OrderController {
     }
 
     @PutMapping("order/{id}/update/status")
-    public ResponseEntity<OrderDto> updateStatus(@PathVariable("id") Long id, @RequestBody Status status) {
-        OrderDto response = orderService.updateOrderStatus(id, status);
+    public ResponseEntity<OrderDto> updateStatus(
+            @PathVariable("id") Long id,
+            @RequestBody OrderStatusDto orderStatusDto) {
+        OrderDto response = orderService.updateOrderStatus(id, orderStatusDto.getStatus());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }
