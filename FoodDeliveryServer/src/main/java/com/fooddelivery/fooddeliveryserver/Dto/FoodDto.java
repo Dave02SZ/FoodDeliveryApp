@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class FoodDto {
-    private int id;
+    private Long id;
     private String name;
     private boolean hasSauce;
 }

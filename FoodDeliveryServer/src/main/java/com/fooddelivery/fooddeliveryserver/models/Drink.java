@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
