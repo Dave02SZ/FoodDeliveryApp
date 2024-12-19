@@ -1,6 +1,9 @@
 package com.fooddelivery.fooddeliveryserver.controllers;
 
+import com.fooddelivery.fooddeliveryserver.Dto.FoodDto;
 import com.fooddelivery.fooddeliveryserver.models.Food;
+import com.fooddelivery.fooddeliveryserver.services.FoodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,17 +15,16 @@ import java.util.List;
 @RequestMapping("/api/")
 public class FoodController {
 
+    private final FoodService foodService;
+
+    @Autowired
+    public FoodController(FoodService foodService) {
+        this.foodService = foodService;
+    }
 
     @GetMapping("food")
-    public ResponseEntity<List<Food>> getFood() {
-        List<Food> foods = new ArrayList<Food>();
-        foods.add(new Food(1,"Pizza",false));
-        foods.add(new Food(2,"Hot dog", true));
-        foods.add(new Food(3,"Hamburger", true));
-        foods.add(new Food(4,"French fries", true));
-        foods.add(new Food(5,"Ice cream", false));
-
-        return ResponseEntity.ok(foods);
+    public ResponseEntity<List<FoodDto>> getFood() {
+        return new ResponseEntity<>(foodService.getAllFood(), HttpStatus.OK);
     }
 
     @GetMapping("food/{id}")
@@ -32,10 +34,8 @@ public class FoodController {
 
     @PostMapping("food/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Food> createFood(@RequestBody Food food) {
-        System.out.println(food.getId());
-        System.out.println(food.getName());
-        return new ResponseEntity<>(food,HttpStatus.CREATED);
+    public ResponseEntity<FoodDto> createFood(@RequestBody FoodDto foodDto) {
+        return new ResponseEntity<>(foodService.createFood(foodDto), HttpStatus.CREATED);
     }
 
     @PutMapping("food/{id}/update")
