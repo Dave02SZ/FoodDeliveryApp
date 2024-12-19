@@ -1,6 +1,7 @@
 package com.fooddelivery.fooddeliveryserver.services.impl;
 
 import com.fooddelivery.fooddeliveryserver.Dto.FoodDto;
+import com.fooddelivery.fooddeliveryserver.exceptions.FoodNotFoundException;
 import com.fooddelivery.fooddeliveryserver.models.Food;
 import com.fooddelivery.fooddeliveryserver.repository.FoodRepository;
 import com.fooddelivery.fooddeliveryserver.services.FoodService;
@@ -38,6 +39,29 @@ public class FoodServiceImpl implements FoodService {
     public List<FoodDto> getAllFood() {
         List<Food> foods = foodRepository.findAll();
         return foods.stream().map(f -> mapToDto(f)).collect(Collectors.toList());
+    }
+
+    @Override
+    public FoodDto getFoodById(Long id) {
+        Food food = foodRepository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food could not be found"));
+        return mapToDto(food);
+    }
+
+    @Override
+    public FoodDto updateFood(FoodDto foodDto, Long id) {
+        Food food = foodRepository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found"));
+
+        food.setName(foodDto.getName());
+        food.setHasSauce(foodDto.isHasSauce());
+        Food updatedFood = foodRepository.save(food);
+
+        return mapToDto(updatedFood);
+    }
+
+    @Override
+    public void deleteFood(Long id) {
+        Food food = foodRepository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found"));
+        foodRepository.delete(food);
     }
 
     private FoodDto mapToDto(Food food){

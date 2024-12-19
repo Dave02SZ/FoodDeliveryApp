@@ -8,4 +8,7 @@ import java.util.List;
 public interface FoodService {
     FoodDto createFood(FoodDto foodDto);
     List<FoodDto> getAllFood();
+    FoodDto getFoodById(Long id);
+    FoodDto updateFood(FoodDto foodDto, Long id);
+    void deleteFood(Long id);
 }
