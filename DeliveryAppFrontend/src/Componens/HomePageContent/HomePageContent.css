@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap');
+
+.homepagecontentmain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFFAF9;
+    width: 100vw;
+}
+
+.home-page-text{
+    flex:1;
+    padding: 10vh 0 0 10vw;
+}
+
+
+.home-page-text p {
+    font-size: 45px;
+    color: #301909;
+    line-height: 120%;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.home-page-img {
+    width: 50%;
+    height: 50%;
+    padding: 5vh 40px 5vh 0;
+}
+
+.order-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-text{
+    padding-top: 30px;
+    font-size: 45px;
+    color: #301909;
+    line-height: 120%;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 900;
+    font-style: normal;
+}

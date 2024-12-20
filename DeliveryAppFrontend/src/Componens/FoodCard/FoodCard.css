@@ -1,0 +1,66 @@
+.food-card {
+    background-color: #FFFAF9;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    min-height: 300px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column; /* Vertikális elrendezés */
+    align-items: center; /* Vízszintesen középre */
+    justify-content: space-between; /* Függőlegesen középre */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #301909;
+}
+
+.food-card-title
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;
+    color: #301909;
+    line-height: 120%;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 900;
+    font-style: normal;
+    padding: 0 10px 0 20px;
+}
+
+.food-card-ing-add-inf-container{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+.food-card-ingr-container{
+    padding: 10px 0 10px 0;
+}
+
+.food-card-add-inf-container{
+    padding: 10px 0 20px 0;
+}
+
+.food-card-ingr-title{
+    font-size: 20px;
+    color: #301909;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.food-card-ingr-text{
+    font-size: 15px;
+    color: #301909;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.food-img{
+    width: 40%;
+    height: 40%;
+}
