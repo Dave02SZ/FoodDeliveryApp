@@ -31,15 +31,19 @@ const DrinkIcon: React.FC<DrinkIconProps> = ({ drinkType }) => {
 interface DrinkCardProps {
     name: string;
     additionalInfo: string; // Ingredients eltávolítva
-    drinkType: DrinkType; // A drinkType típus
+    drinkType: DrinkType;
+    price: number;// A drinkType típus
 }
 
-const DrinkCard: React.FC<DrinkCardProps> = ({ name, additionalInfo, drinkType }) => {
+const DrinkCard: React.FC<DrinkCardProps> = ({ name, additionalInfo, drinkType, price }) => {
     return (
         <div className="drink-card">
             <div className="drink-card-title">
                 <p>{name}</p>
                 <DrinkIcon drinkType={drinkType} />
+            </div>
+            <div>
+                <p className="drink-card-ingr-title">{price} Ft</p>
             </div>
             <div className="drink-card-add-inf-container">
                 <p className="drink-card-ingr-title">Plusz információ:</p>

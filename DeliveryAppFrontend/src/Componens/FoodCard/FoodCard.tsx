@@ -35,22 +35,27 @@ interface FoodCardProps {
     name: string;
     ingredients: string;
     additionalInfo: string;
-    foodType: FoodType; // Itt is deklarálni kell, hogy foodType FoodType típusú
+    foodType: FoodType;
+    price: number
 }
 
-const FoodCard: React.FC<FoodCardProps> = ({ name, ingredients, additionalInfo, foodType }) => {
+const FoodCard: React.FC<FoodCardProps> = ({ name, ingredients, additionalInfo, foodType, price }) => {
 
     return (
         <div className="food-card">
             <div className="food-card-title">
                 <p>{name}</p>
-                <FoodIcon foodType={foodType} />
+                <FoodIcon foodType={foodType}/>
+            </div>
+            <div>
+                <p className="food-card-ingr-title">{price} Ft</p>
             </div>
             <div className="food-card-ing-add-inf-container">
                 <div className="food-card-ingr-container">
                     <p className="food-card-ingr-title">Összetevők: </p>
                     <p className="food-card-ingr-text">{ingredients}</p>
                 </div>
+
                 <div className="food-card-add-inf-container">
                     <p className="food-card-ingr-title">Plusz információ:</p>
                     <p className="food-card-ingr-text">{additionalInfo}</p>

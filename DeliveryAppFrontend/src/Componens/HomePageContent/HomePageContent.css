@@ -34,6 +34,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 }
 
 .order-text{
@@ -44,4 +45,16 @@
     font-family: "M PLUS 1p", serif;
     font-weight: 900;
     font-style: normal;
+}
+
+.element-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Három oszlopot definiál */
+    gap: 20px; /* Távolság az elemek között */
+    padding: 20px; /* Szegély a tárolón belül */
+}
+
+.element-container > * {
+    justify-self: center; /* Középre igazítja az elemeket vízszintesen */
+    align-self: center; /* Középre igazítja az elemeket függőlegesen */
 }

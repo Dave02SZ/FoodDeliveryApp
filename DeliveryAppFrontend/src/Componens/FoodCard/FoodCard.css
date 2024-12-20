@@ -27,6 +27,7 @@
     font-weight: 900;
     font-style: normal;
     padding: 0 10px 0 20px;
+    width: 100%;
 }
 
 .food-card-ing-add-inf-container{
@@ -61,6 +62,6 @@
 }
 
 .food-img{
-    width: 40%;
-    height: 40%;
+    width: 5rem;
+    height: 5rem;
 }
