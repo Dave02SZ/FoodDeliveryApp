@@ -1,10 +1,21 @@
 import "./FoodCard.css"
 
+
 type FoodType = "PIZZA" | "BURGER" | "HOT_DOG" | "FRIES";
 
 interface FoodIconProps {
     foodType: FoodType;
 }
+
+interface FoodCardProps {
+    name: string;
+    ingredients: string;
+    additionalInfo: string;
+    foodType: FoodType;
+    price: number
+}
+
+
 
 const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     let imageSrc: string;
@@ -31,15 +42,8 @@ const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     );
 };
 
-interface FoodCardProps {
-    name: string;
-    ingredients: string;
-    additionalInfo: string;
-    foodType: FoodType;
-    price: number
-}
-
 const FoodCard: React.FC<FoodCardProps> = ({ name, ingredients, additionalInfo, foodType, price }) => {
+
 
     return (
         <div className="food-card">
