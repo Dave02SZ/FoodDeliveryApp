@@ -19,6 +19,7 @@ interface FoodCardProps {
 
 export const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     let imageSrc: string;
+    console.log("FOOD: ", foodType)
 
     switch (foodType) {
         case "PIZZA":

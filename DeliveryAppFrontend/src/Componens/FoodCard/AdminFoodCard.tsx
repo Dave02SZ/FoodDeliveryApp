@@ -10,7 +10,7 @@ interface AdminFoodCardProps {
         id: number;
         name: string;
         ingredients: string;
-        additionalInfo: string;
+        description: string;
         foodType: FoodType;
         price: number;
     };
@@ -30,7 +30,7 @@ const AdminFoodCard: React.FC<AdminFoodCardProps> = ({ food, onDelete}) => {
         id: number;
         name: string;
         ingredients: string;
-        additionalInfo: string;
+        description: string;
         foodType: FoodType;
         price: number;
     }) => {
@@ -112,7 +112,7 @@ const AdminFoodCard: React.FC<AdminFoodCardProps> = ({ food, onDelete}) => {
                         </div>
                         <div className="admin-food-card-add-inf-container">
                             <p className="admin-food-card-ingr-title">Additional Information:</p>
-                            <p className="admin-food-card-ingr-text">{food.additionalInfo}</p>
+                            <p className="admin-food-card-ingr-text">{food.description}</p>
                         </div>
                     </div>
                 </>

@@ -12,7 +12,13 @@
     border-width: 1px;
     border-style: solid;
     border-color: #301909;
+    cursor: pointer;
 }
+
+.food-card:hover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
 
 .food-card-title
 {
@@ -28,7 +34,9 @@
     font-style: normal;
     padding: 0 10px 0 20px;
     width: 100%;
+
 }
+
 
 .food-card-ing-add-inf-container{
     display: flex;

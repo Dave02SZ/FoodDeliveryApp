@@ -88,7 +88,6 @@ const HomePageContent = () => {
                 </div>
             </div>
             <div className="order-container">
-                <p className="order-text">Rendelés</p>
                 <p className="order-text">Ételek</p>
                 <div className="element-container">
                     {loadingFoods ? (
@@ -107,6 +106,8 @@ const HomePageContent = () => {
                     ) : (
                         <p>Nincs találat a keresési feltételek alapján.</p>
                     )}
+
+
 
                     {loadingDrinks ? (
                         <p>Italok betöltése...</p>

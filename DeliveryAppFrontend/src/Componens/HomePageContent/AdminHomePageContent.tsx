@@ -28,7 +28,7 @@ interface FoodCardProps {
     id: number;
     name: string;
     ingredients: string;
-    additionalInfo: string;
+    description: string;
     foodType: FoodType;
     price: number;
 }
@@ -110,27 +110,28 @@ const AdminHomePageContent = () => {
 
     return (
         <div className="order-container">
-            <p className="order-text">Admin Drinks</p>
-            <div className="element-container">
-                {loadingDrinks ? (
-                    <p>Loading drinks...</p>
-                ) : (
-                    drinkData.map((drink) => (
-                        <AdminDrinkCard key={drink.id} drink={drink} onDelete={handleDeleteDrink} />
-                    ))
-                )}
-            </div>
-
-            <p className="order-text">Admin Foods</p>
+            <p className="order-text">Foods</p>
             <div className="element-container">
                 {loadingFoods ? (
                     <p>Loading foods...</p>
                 ) : (
                     foodData.map((food) => (
-                        <AdminFoodCard key={food.id} food={food} onDelete={handleDeleteFood} />
+                        <AdminFoodCard key={food.id} food={food} onDelete={handleDeleteFood}/>
                     ))
                 )}
             </div>
+
+            <p className="order-text">Drinks</p>
+            <div className="element-container">
+                {loadingDrinks ? (
+                    <p>Loading drinks...</p>
+                ) : (
+                    drinkData.map((drink) => (
+                        <AdminDrinkCard key={drink.id} drink={drink} onDelete={handleDeleteDrink}/>
+                    ))
+                )}
+            </div>
+
         </div>
     );
 };

@@ -27,14 +27,14 @@ const AdminDrinkCard: React.FC<AdminDrinkCardProps> = ({ drink, onDelete }) => {
     const handleSave = async (updatedDrink: {
         id: number;
         name: string;
-        additionalInfo: string;
+        description: string;
         drinkType: DrinkType;
         price: number;
     }) => {
         try {
             setIsEditing(false);
             // Make a PUT request to update the food item
-            const response = await fetch(`http://localhost:8080/api/food/${updatedDrink.id}/update`, {
+            const response = await fetch(`http://localhost:8080/api/drink/${updatedDrink.id}/update`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -54,10 +54,10 @@ const AdminDrinkCard: React.FC<AdminDrinkCardProps> = ({ drink, onDelete }) => {
 
 
             } else {
-                console.error("Failed to update food");
+                console.error("Failed to update drink");
             }
         } catch (error) {
-            console.error("Error updating food:", error);
+            console.error("Error updating drink:", error);
         }
         return drinkData
     };

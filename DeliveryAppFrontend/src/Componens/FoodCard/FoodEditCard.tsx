@@ -7,7 +7,7 @@ interface FoodEditCardProps {
         id: number;
         name: string;
         ingredients: string;
-        additionalInfo: string;
+        description: string;
         foodType: FoodType;
         price: number;
     };
@@ -15,7 +15,7 @@ interface FoodEditCardProps {
         id: number;
         name: string;
         ingredients: string;
-        additionalInfo: string;
+        description: string;
         foodType: FoodType;
         price: number;
     }) => void;
@@ -80,8 +80,8 @@ const FoodEditCard: React.FC<FoodEditCardProps> = ({ food, onSave, onCancel }) =
                 <div className="food-data-with-name">
                     <p>Additional Info: </p>
                     <textarea
-                        value={editableFood.additionalInfo}
-                        onChange={(e) => setEditableFood({ ...editableFood, additionalInfo: e.target.value })}
+                        value={editableFood.description}
+                        onChange={(e) => setEditableFood({ ...editableFood, description: e.target.value })}
                         placeholder="Additional information"
                     />
                 </div>
