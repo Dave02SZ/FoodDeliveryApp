@@ -1,4 +1,4 @@
-import "./DrinkCard.css"; // Ne felejtsd el a CSS fájl nevét is módosítani, ha szükséges
+import "./DrinkCard.css";
 
 type DrinkType = "SODA" | "SHAKE" | "HOT"; // Drink típusok
 
@@ -6,33 +6,39 @@ interface DrinkIconProps {
     drinkType: DrinkType; // Átnevezzük foodType helyett drinkType-ra
 }
 
-const DrinkIcon: React.FC<DrinkIconProps> = ({ drinkType }) => {
+export const DrinkIcon: React.FC<DrinkIconProps> = ({ drinkType }) => {
     let imageSrc: string;
 
+    // Kép források a drinkType alapján
     switch (drinkType) {
         case "SODA":
-            imageSrc = "src/assets/drinks/soda.svg"; // Kép helye
+            imageSrc = "src/assets/drinks/soda.svg";
             break;
         case "SHAKE":
-            imageSrc = "src/assets/drinks/shake.svg"; // Kép helye
+            imageSrc = "src/assets/drinks/shake.svg";
             break;
         case "HOT":
-            imageSrc = "src/assets/drinks/hot.svg"; // Kép helye
+            imageSrc = "src/assets/drinks/hot.svg";
             break;
         default:
-            imageSrc = "src/images/star_purple500.png"; // Alapértelmezett kép
+            imageSrc = "src/images/star_purple500.png";
     }
 
+    // Ha drinkType nem létezik, alapértelmezett értéket adunk
     return (
-        <img className="drink-img" src={imageSrc} alt={drinkType.toLowerCase()} />
+        <img
+            className="drink-img"
+            src={imageSrc}
+            alt={drinkType ? drinkType.toLowerCase() : 'default'} // Biztosítjuk, hogy ne legyen undefined
+        />
     );
 };
 
 interface DrinkCardProps {
     name: string;
-    additionalInfo: string; // Ingredients eltávolítva
+    additionalInfo: string;
     drinkType: DrinkType;
-    price: number;// A drinkType típus
+    price: number;
 }
 
 const DrinkCard: React.FC<DrinkCardProps> = ({ name, additionalInfo, drinkType, price }) => {

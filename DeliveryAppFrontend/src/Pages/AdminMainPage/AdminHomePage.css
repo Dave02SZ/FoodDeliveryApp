@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;                /* Az oldal teljes magasságát lefoglalja */
+    overflow-x: hidden;          /* Tiltja a vízszintes görgetést */
+    overflow-y: scroll;          /* Engedélyezi a függőleges görgetést */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.admin-home-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}

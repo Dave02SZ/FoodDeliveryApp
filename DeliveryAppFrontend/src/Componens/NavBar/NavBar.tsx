@@ -17,7 +17,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-actions-container">
-                <a href="#" className="navbar-login-btn">LOGIN</a>
+                <a href="/admin" className="navbar-login-btn">LOGIN</a>
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                          className="bi bi-cart2" viewBox="0 0 16 16">
