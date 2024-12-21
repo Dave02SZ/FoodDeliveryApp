@@ -1,0 +1,66 @@
+.create-new-item{
+    background-color: #FFFAF9;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    min-height: 400px;
+    max-width: 600px;
+    align-items: center;
+    justify-content: center;/* Vízszintesen középre */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #301909;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-new-item h1{
+    text-align: center;
+    font-size: 40px;
+    color: #301909;
+    line-height: 120%;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 900;
+    font-style: normal;
+    padding: 0 0 40px 0;
+    width: 100%;
+}
+
+.main-create-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.item-distance{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #301909;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    gap: 5px;
+    padding-bottom: 5px;
+
+}
+
+.input-field{
+    width: 50%;
+    border: 1px solid #301909;
+}
+
+.create-new-button{
+    background-color: white;
+    border: 1px solid #301909;
+}
+
+.create-new-button:hover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #301909;
+}

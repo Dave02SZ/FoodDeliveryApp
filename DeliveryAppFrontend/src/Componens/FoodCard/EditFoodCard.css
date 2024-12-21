@@ -1,0 +1,61 @@
+.edit-food-card {
+    background-color: #FFFAF9;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    min-height: 300px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column; /* Vertikális elrendezés */
+    align-items: center; /* Vízszintesen középre */
+    justify-content: space-between; /* Függőlegesen középre */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #301909;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+}
+
+
+
+
+.edit-food-card h2 {
+    padding: 1rem;
+    font-size: 20px;
+    color: #301909;
+    font-family: "M PLUS 1p", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.food-edit-delete-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.food-edit-delete-container button{
+    border-color: #301909;
+}
+
+.food-edit-delete-container button:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.food-input-field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.food-data-with-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+}

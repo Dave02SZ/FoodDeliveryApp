@@ -17,7 +17,7 @@ interface FoodCardProps {
 
 
 
-const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
+export const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     let imageSrc: string;
 
     switch (foodType) {

@@ -2,26 +2,66 @@ import "./AdminDrinkCard.css"
 import { DrinkIcon } from "./DrinkCard.tsx"
 
 import React, { useState } from "react";
-import { DrinkType } from "../HomePageContent/AdminHomePageContent.tsx"; // Importáld a DrinkType-t
-import DrinkEditCard from "./DrinkCardEdit.tsx"; // Importáld a DrinkEditCard komponenst
+import {DrinkType} from "../HomePageContent/AdminHomePageContent.tsx";
+import DrinkEditCard from "./DrinkCardEdit.tsx";
 
 interface AdminDrinkCardProps {
-    drink: { id: number; name: string; description: string; drinkType: DrinkType; price: number };
+    drink: {
+        id: number;
+        name: string;
+        description:string;
+        drinkType: DrinkType;
+        price: number };
+
     onDelete: (id: number) => void; // Törlés funkció
 }
 
 const AdminDrinkCard: React.FC<AdminDrinkCardProps> = ({ drink, onDelete }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [drinkData, setDrinkData] = useState<AdminDrinkCardProps[]>([]);
 
     const handleEdit = () => {
         setIsEditing(true); // Edit módba váltunk
     };
 
-    const handleSave = (updatedDrink: { id: number; name: string; description: string; drinkType: DrinkType; price: number }) => {
-        // Itt kellene frissíteni a backend-et, például PUT kérés küldésével
-        console.log("Saving edited drink:", updatedDrink);
-        setIsEditing(false); // Elmentés után kilépünk az edit módból
+    const handleSave = async (updatedDrink: {
+        id: number;
+        name: string;
+        additionalInfo: string;
+        drinkType: DrinkType;
+        price: number;
+    }) => {
+        try {
+            setIsEditing(false);
+            // Make a PUT request to update the food item
+            const response = await fetch(`http://localhost:8080/api/food/${updatedDrink.id}/update`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedDrink),
+            });
+
+            if (response.ok) {
+                const updatedDrinkData = await response.json(); // Backend response
+
+                // Update foodData with the updated food
+                setDrinkData((prevData) =>
+                    prevData.map((drink) =>
+                        drink.drink.id === updatedDrinkData.id ? updatedDrinkData : drink.drink
+                    )
+                );
+
+
+            } else {
+                console.error("Failed to update food");
+            }
+        } catch (error) {
+            console.error("Error updating food:", error);
+        }
+        return drinkData
     };
+
 
     const handleCancel = () => {
         setIsEditing(false); // Kilépünk az edit módból
