@@ -41,16 +41,16 @@ interface DrinkCardProps {
     price: number;
 }
 // onClick: () => void
-const DrinkCard: React.FC<DrinkCardProps & {  }> = ({
+const DrinkCard: React.FC<DrinkCardProps & { onClick: () => void }> = ({
      name,
      description,
      drinkType,
      price,
-     // onClick,
+     onClick,
  }) => {
     return (
         // onClick={onClick}
-        <div className="drink-card" >
+        <div className="drink-card" onClick={onClick}>
             <div className="drink-card-title">
                 <p>{name}</p>
                 <DrinkIcon drinkType={drinkType} />

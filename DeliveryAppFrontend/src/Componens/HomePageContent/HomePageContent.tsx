@@ -134,7 +134,16 @@ const HomePageContent = () => {
                                 description={drink.description}
                                 drinkType={drink.drinkType}
                                 price={drink.price}
-
+                                onClick={() => {
+                                    console.log("Food clicked:", drink); // Ellenőrzés
+                                    addToOrder({
+                                        id: drink.id,
+                                        name: drink.name,
+                                        description: drink.description,
+                                        price: drink.price,
+                                        type: "DRINK",
+                                    });
+                                }}
                             />
                         ))
                     ) : (
