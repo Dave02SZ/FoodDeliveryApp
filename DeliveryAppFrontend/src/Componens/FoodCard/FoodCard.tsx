@@ -10,7 +10,7 @@ interface FoodIconProps {
 interface FoodCardProps {
     name: string;
     ingredients: string;
-    additionalInfo: string;
+    description: string;
     foodType: FoodType;
     price: number
 }
@@ -19,7 +19,6 @@ interface FoodCardProps {
 
 export const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     let imageSrc: string;
-    console.log("FOOD: ", foodType)
 
     switch (foodType) {
         case "PIZZA":
@@ -43,14 +42,21 @@ export const FoodIcon: React.FC<FoodIconProps> = ({ foodType }) => {
     );
 };
 
-const FoodCard: React.FC<FoodCardProps> = ({ name, ingredients, additionalInfo, foodType, price }) => {
+const FoodCard: React.FC<FoodCardProps & { onClick: () => void }> = ({
+     name,
+     ingredients,
+     description,
+     foodType,
+     price,
+     onClick,
+ }) => {
 
 
     return (
-        <div className="food-card">
+        <div className="food-card" onClick={onClick}>
             <div className="food-card-title">
                 <p>{name}</p>
-                <FoodIcon foodType={foodType}/>
+                <FoodIcon foodType={foodType} />
             </div>
             <div>
                 <p className="food-card-ingr-title">{price} Ft</p>
@@ -63,7 +69,7 @@ const FoodCard: React.FC<FoodCardProps> = ({ name, ingredients, additionalInfo, 
 
                 <div className="food-card-add-inf-container">
                     <p className="food-card-ingr-title">Plusz információ:</p>
-                    <p className="food-card-ingr-text">{additionalInfo}</p>
+                    <p className="food-card-ingr-text">{description}</p>
                 </div>
             </div>
         </div>

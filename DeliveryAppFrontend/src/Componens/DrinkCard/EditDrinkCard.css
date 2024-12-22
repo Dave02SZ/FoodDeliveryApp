@@ -2,8 +2,10 @@
     background-color: #FFFAF9;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 350px;
+    max-height: 350px;
     margin-top: 2rem;
     display: flex;
     flex-direction: column; /* Vertikális elrendezés */
@@ -12,16 +14,8 @@
     border-width: 1px;
     border-style: solid;
     border-color: #301909;
-    cursor: pointer;
-    position: relative;
     width: 100%;
-}
-
-.admin-drink-card-editing .admin-drink-card-title,
-.admin-drink-card-editing .admin-del-edit-drink,
-.admin-drink-card-editing .admin-drink-card-ingr-title,
-.admin-drink-card-editing .admin-drink-card-add-inf-container {
-    display: none;
+    z-index: 10;
 }
 
 

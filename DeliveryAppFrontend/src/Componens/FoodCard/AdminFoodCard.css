@@ -2,18 +2,40 @@
     background-color: #FFFAF9;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 350px;
+    max-height: 350px;
     margin-top: 2rem;
     display: flex;
-    flex-direction: column; /* Vertikális elrendezés */
-    align-items: center; /* Vízszintesen középre */
-    justify-content: space-between; /* Függőlegesen középre */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border-width: 1px;
     border-style: solid;
     border-color: #301909;
+    z-index: 20;
+    position: relative;
 }
 
+.admin-food-card.editing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.admin-food-card.editing > :not(.edit-food-card) {
+    display: none; /* Elrejtjük az összes nem szerkesztő elemet */
+}
+
+.edit-food-card {
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Előtérben tartja a szerkesztő kártyát */
+    background-color: #FFFAF9;
+    border-radius: 8px;
+}
 
 .admin-food-card-title {
     display: flex;
@@ -37,7 +59,6 @@
     padding: 20px;
 }
 
-
 .admin-food-card-ingr-title {
     font-size: 20px;
     color: #301909;
@@ -52,28 +73,26 @@
     font-family: "M PLUS 1p", serif;
     font-weight: 400;
     font-style: normal;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 200px;
 }
 
-.admin-food-img {
-    width: 5rem;
-    height: 5rem;
-}
-
-.admin-del-edit-food{
+.admin-del-edit-food {
     display: flex;
     flex-direction: row;
     gap: 10px;
     padding: 10px 0 10px 0;
 }
 
-.admin-del-edit-food img{
+.admin-del-edit-food img {
     cursor: pointer;
     padding: 2px;
 }
 
-.admin-del-edit-food img:hover{
+.admin-del-edit-food img:hover {
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
-

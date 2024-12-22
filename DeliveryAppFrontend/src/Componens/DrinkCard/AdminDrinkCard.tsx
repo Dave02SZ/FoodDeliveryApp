@@ -68,9 +68,9 @@ const AdminDrinkCard: React.FC<AdminDrinkCardProps> = ({ drink, onDelete }) => {
     };
 
     return (
-        <div className="admin-drink-card">
+        <div className={`admin-drink-card ${isEditing ? "editing" : ""}`}>
             {isEditing ? (
-                <DrinkEditCard drink={drink} onSave={handleSave} onCancel={handleCancel} />
+                <DrinkEditCard drink={drink} onSave={handleSave} onCancel={handleCancel}/>
             ) : (
                 <>
                     <div className="admin-drink-card-title">
@@ -95,6 +95,7 @@ const AdminDrinkCard: React.FC<AdminDrinkCardProps> = ({ drink, onDelete }) => {
                 </>
             )}
         </div>
+
     );
 };
 

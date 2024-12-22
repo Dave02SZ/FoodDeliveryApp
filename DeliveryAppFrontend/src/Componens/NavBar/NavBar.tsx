@@ -11,14 +11,10 @@ const Navbar = () => {
                 </a>
             </div>
 
-            <div className="navbar-links-container">
-                <a href="#">RENDELÉS</a>
-                <a href="#">RÓLUNK</a>
-            </div>
 
             <div className="navbar-actions-container">
                 <a href="/admin" className="navbar-login-btn">LOGIN</a>
-                <a href="#">
+                <a href="/orders">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                          className="bi bi-cart2" viewBox="0 0 16 16">
                         <path

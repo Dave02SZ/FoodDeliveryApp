@@ -36,14 +36,21 @@ export const DrinkIcon: React.FC<DrinkIconProps> = ({ drinkType }) => {
 
 interface DrinkCardProps {
     name: string;
-    additionalInfo: string;
+    description: string;
     drinkType: DrinkType;
     price: number;
 }
-
-const DrinkCard: React.FC<DrinkCardProps> = ({ name, additionalInfo, drinkType, price }) => {
+// onClick: () => void
+const DrinkCard: React.FC<DrinkCardProps & {  }> = ({
+     name,
+     description,
+     drinkType,
+     price,
+     // onClick,
+ }) => {
     return (
-        <div className="drink-card">
+        // onClick={onClick}
+        <div className="drink-card" >
             <div className="drink-card-title">
                 <p>{name}</p>
                 <DrinkIcon drinkType={drinkType} />
@@ -53,7 +60,7 @@ const DrinkCard: React.FC<DrinkCardProps> = ({ name, additionalInfo, drinkType, 
             </div>
             <div className="drink-card-add-inf-container">
                 <p className="drink-card-ingr-title">Plusz információ:</p>
-                <p className="drink-card-ingr-text">{additionalInfo}</p>
+                <p className="drink-card-ingr-text">{description}</p>
             </div>
         </div>
     );

@@ -3,6 +3,8 @@ import FoodCard from "../FoodCard/FoodCard.tsx";
 import DrinkCard from "../DrinkCard/DrinkCard.tsx";
 import { useEffect, useState } from "react";
 
+import { useOrder } from "../OrdersPageContent/OrderContext";
+
 export enum DrinkType {
     SODA = "SODA",
     SHAKE = "SHAKE",
@@ -28,7 +30,7 @@ interface FoodCardProps {
     id: number;
     name: string;
     ingredients: string;
-    additionalInfo: string;
+    description: string;
     foodType: FoodType;
     price: number;
 }
@@ -38,6 +40,7 @@ const HomePageContent = () => {
     const [foodData, setFoodData] = useState<FoodCardProps[]>([]);
     const [loadingDrinks, setLoadingDrinks] = useState(true);
     const [loadingFoods, setLoadingFoods] = useState(true);
+    const { addToOrder } = useOrder();
 
     useEffect(() => {
         const fetchDrinks = async () => {
@@ -99,16 +102,28 @@ const HomePageContent = () => {
                                 foodType={food.foodType}
                                 ingredients={food.ingredients}
                                 name={food.name}
-                                additionalInfo={food.additionalInfo}
+                                description={food.description}
                                 price={food.price}
+                                onClick={() => {
+                                    console.log("Food clicked:", food); // Ellenőrzés
+                                    addToOrder({
+                                        id: food.id,
+                                        name: food.name,
+                                        description: food.description,
+                                        price: food.price,
+                                        type: "FOOD",
+                                    });
+                                }}
                             />
                         ))
                     ) : (
                         <p>Nincs találat a keresési feltételek alapján.</p>
                     )}
+                </div>
 
+                <p className="order-text">Italok</p>
 
-
+                <div className="element-container">
                     {loadingDrinks ? (
                         <p>Italok betöltése...</p>
                     ) : drinkData.length > 0 ? (
@@ -116,9 +131,10 @@ const HomePageContent = () => {
                             <DrinkCard
                                 key={drink.id}
                                 name={drink.name}
-                                additionalInfo={drink.description}
+                                description={drink.description}
                                 drinkType={drink.drinkType}
                                 price={drink.price}
+
                             />
                         ))
                     ) : (

@@ -1,0 +1,37 @@
+.orders-page-content {
+    padding: 20px;
+    font-family: "M PLUS 1p", serif;
+    background-color: #FFFAF9;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.order-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #301909;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.remove-item-button {
+    background-color: #ff5c5c;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-item-button:hover {
+    background-color: #ff3030;
+}

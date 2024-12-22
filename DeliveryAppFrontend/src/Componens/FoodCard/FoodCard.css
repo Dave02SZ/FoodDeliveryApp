@@ -2,8 +2,10 @@
     background-color: #FFFAF9;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 350px;
+    max-height: 350px;
     margin-top: 2rem;
     display: flex;
     flex-direction: column; /* Vertikális elrendezés */
@@ -61,13 +63,18 @@
     font-style: normal;
 }
 
-.food-card-ingr-text{
+.food-card-ingr-text {
     font-size: 15px;
     color: #301909;
     font-family: "M PLUS 1p", serif;
     font-weight: 400;
     font-style: normal;
+    word-wrap: break-word; /* Tördelés hosszú szavaknál */
+    white-space: normal; /* Sortörés engedélyezése */
+    overflow-wrap: break-word; /* Tördelés hosszú szavaknál (modern böngészők) */
+    max-width: 200px;
 }
+
 
 .food-img{
     width: 5rem;

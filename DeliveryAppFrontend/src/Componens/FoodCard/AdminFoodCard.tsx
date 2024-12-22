@@ -73,7 +73,7 @@ const AdminFoodCard: React.FC<AdminFoodCardProps> = ({ food, onDelete}) => {
 
 
     return (
-        <div className="admin-food-card">
+        <div className={`admin-food-card ${isEditing ? "editing" : ""}`}>
             {isEditing ? (
                 <FoodEditCard
                     food={food}
@@ -99,7 +99,7 @@ const AdminFoodCard: React.FC<AdminFoodCardProps> = ({ food, onDelete}) => {
                             <p>{food.name}</p>
                         </div>
 
-                        <FoodIcon foodType={food.foodType} />
+                        <FoodIcon foodType={food.foodType}/>
                     </div>
 
                     <div>
@@ -118,6 +118,7 @@ const AdminFoodCard: React.FC<AdminFoodCardProps> = ({ food, onDelete}) => {
                 </>
             )}
         </div>
+
     );
 };
 
