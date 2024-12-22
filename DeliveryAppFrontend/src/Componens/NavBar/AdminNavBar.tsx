@@ -13,7 +13,7 @@ const AdminNavbar = () => {
 
             <div className="navbar-links-container">
                 <a href="/admin/create">Új</a>
-                <a href="#">RENDELÉSEK</a>
+                <a href="/admin/orders">RENDELÉSEK</a>
             </div>
 
             <div className="navbar-actions-container">

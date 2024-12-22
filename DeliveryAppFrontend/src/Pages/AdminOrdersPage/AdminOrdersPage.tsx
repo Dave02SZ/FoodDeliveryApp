@@ -1,14 +1,15 @@
-import Navbar from "../../Componens/NavBar/NavBar.tsx";
+
 
 import Footer from "../../Componens/Footer/Footer.tsx";
-import AdminHomePageContent from "../../Componens/HomePageContent/AdminHomePageContent.tsx";
+import AdminNavBar from "../../Componens/NavBar/AdminNavBar.tsx";
+import AdminOrdersPageContent from "../../Componens/AdminOrdersPageContent/AdminOrdersPageContent.tsx";
 
 const HomePage = () => {
     return (
         <>
             <div className="home-page-container">
-                <Navbar />
-                <AdminHomePageContent />
+                <AdminNavBar />
+                <AdminOrdersPageContent />
                 <Footer />
             </div>
         </>

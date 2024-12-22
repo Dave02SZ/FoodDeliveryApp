@@ -15,9 +15,9 @@ const App = () => {
             <Routes>
                 <Route path="/" index element={<HomePage />}/>
                 <Route path="/admin" index element={<AdminHomePage />}/>
-                <Route path={"admin/create"} index element={<CreatePage />}/>
+                <Route path={"/admin/create"} index element={<CreatePage />}/>
                 <Route path={"/orders"} index element={<OrdersPage />}/>
-                <Route path={"/orders"} index element={<AdminOrdersPage />}/>
+                <Route path={"/admin/orders"} index element={<AdminOrdersPage />}/>
             </Routes>
         </Router>
         </OrderProvider>
