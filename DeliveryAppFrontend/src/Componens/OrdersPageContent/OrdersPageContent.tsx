@@ -1,4 +1,5 @@
 import { useOrder } from "./OrderContext.tsx";
+import "./OrdersPageContent.css";
 
 const OrdersPageContent = () => {
     const { orderItems, removeFromOrder, clearOrder } = useOrder();
@@ -36,6 +37,7 @@ const OrdersPageContent = () => {
 
 
     return (
+
         <div className="orders-page-content">
             <h2>Rendelési lista</h2>
             {orderItems.length > 0 ? (
@@ -57,16 +59,19 @@ const OrdersPageContent = () => {
                             </div>
                         ))}
                     </div>
-                    <button className="submit-order-button" onClick={handleSubmitOrder}>
-                        Rendelés leadása
-                    </button>
-                    <button
-                        className="clear-order-button"
-                        onClick={clearOrder}
-                        style={{ marginLeft: "10px", backgroundColor: "#ff5555", color: "#fff" }}
-                    >
-                        Kosár ürítése
-                    </button>
+                    <div className="order-button-container">
+                        <button className="order-item" onClick={handleSubmitOrder}>
+                            Rendelés leadása
+                        </button>
+                        <button
+                            className="clear-order-button"
+                            onClick={clearOrder}
+                            style={{marginLeft: "10px", backgroundColor: "#ff5555", color: "#fff"}}
+                        >
+                            Kosár ürítése
+                        </button>
+                    </div>
+
                 </div>
             ) : (
                 <p>A kosár üres.</p>

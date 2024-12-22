@@ -15,12 +15,18 @@
     border-style: solid;
     border-color: #301909;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .food-card:hover{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
+.food-card:active {
+    transform: scale(0.95); /* Kicsinyítés hatás */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6); /* Sötétebb árnyék */
+    background-color: #FFEDE5; /* Enyhe színváltozás */
+}
 
 .food-card-title
 {
