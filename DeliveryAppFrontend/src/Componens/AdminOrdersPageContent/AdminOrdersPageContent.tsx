@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./AdminOrdersPageContent.css"
 
 interface OrderItem {
     foodId: number | null;
@@ -128,7 +129,7 @@ const AdminOrdersPageContent = () => {
             <h2>Rendelések kezelése</h2>
             {orders.length > 0 ? (
                 <div>
-                    <table>
+                    <table className="admin-orders-table">
                         <thead>
                         <tr>
                             <th>Rendelés ID</th>
@@ -154,6 +155,7 @@ const AdminOrdersPageContent = () => {
                                 <td>
                                     {order.status === "ORDER_CREATED" && (
                                         <button
+                                            className="admin-status-button"
                                             onClick={() => handleUpdateStatus(order.id, order.status)}
                                         >
                                             Munkálatok alatt
@@ -161,6 +163,7 @@ const AdminOrdersPageContent = () => {
                                     )}
                                     {order.status === "WORK_IN_PROGRESS" && (
                                         <button
+                                            className="admin-status-button"
                                             onClick={() => handleUpdateStatus(order.id, order.status)}
                                         >
                                             Kész
@@ -168,7 +171,10 @@ const AdminOrdersPageContent = () => {
                                     )}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDeleteOrder(order.id)}>
+                                    <button
+                                        className="admin-delete-button"
+                                        onClick={() => handleDeleteOrder(order.id)}
+                                    >
                                         Törlés
                                     </button>
                                 </td>
@@ -181,6 +187,7 @@ const AdminOrdersPageContent = () => {
                 <p>Nincs rendelés.</p>
             )}
         </div>
+
     );
 };
 

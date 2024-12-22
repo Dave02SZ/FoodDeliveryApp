@@ -1,0 +1,90 @@
+.admin-orders-page-content {
+    padding: 20px;
+    font-family: "M PLUS 1p", serif;
+    background-color: #FFFAF9;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.admin-orders-page-content h2 {
+    font-family: "M PLUS 1p", serif;
+    color: #301909;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.admin-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.admin-orders-table th,
+.admin-orders-table td {
+    border: 1px solid #301909;
+    padding: 10px;
+    text-align: center;
+    font-family: "M PLUS 1p", serif;
+    font-size: 14px;
+}
+
+.admin-orders-table th {
+    background-color: #f4eae6;
+    font-weight: bold;
+}
+
+.admin-orders-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.admin-orders-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.admin-status-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: "M PLUS 1p", serif;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #ffd54f;
+    color: #301909;
+}
+
+.admin-status-button:hover {
+    background-color: #ffc107;
+    transform: scale(1.05);
+}
+
+.admin-status-button:active {
+    transform: scale(0.95);
+}
+
+.admin-delete-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: "M PLUS 1p", serif;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #ff5c5c;
+    color: #fff;
+}
+
+.admin-delete-button:hover {
+    background-color: #ff3030;
+    transform: scale(1.05);
+}
+
+.admin-delete-button:active {
+    transform: scale(0.95);
+}
